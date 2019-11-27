@@ -14,12 +14,15 @@ public class EvaluationService {
 	 * @return
 	 */
 	public String reverse(String string) {
-		String input = "Alpha";
-		char[]try1 = input.toCharArray();
-		for(int i = try1.length -1; i >= 0; i--)
-			System.out.print(try1[i]);
-
-		return "";
+			String input = "Alpha";
+			System.out.println();
+			char[]tryl = input.toCharArray();
+			System.out.println(); 
+			for(int i = tryl.length -1; i >= 0; i--)
+				System.out.print(tryl[i]);
+	System.out.println("test");
+			return reverse("Alpha");
+		
 	}
 
 	/**
@@ -31,7 +34,13 @@ public class EvaluationService {
 	 * @return
 	 */
 	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
+		String text = ("Rubi Rose Artist");
+			String acronym = ""; 
+			System.out.println(text);
+			for (char c : text.toCharArray())
+				if(Character.isUpperCase(c))
+					acronym += c;
+			System.out.println(acronym);
 		return null;
 	}
 
@@ -85,17 +94,20 @@ public class EvaluationService {
 		}
 
 		public boolean isEquilateral() {
-			// TODO Write an implementation for this method declaration
+			if ((sideOne == sideTwo) && (sideTwo == sideThree))
 			return false;
 		}
 
 		public boolean isIsosceles() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			if ((sideOne == sideTwo)) && (sideOne != sideThree))
+				() 
+				((sideTwo == sideThree) && (sideTwo != sideOne)); 
+					return true;
+					
 		}
 
 		public boolean isScalene() {
-			// TODO Write an implementation for this method declaration
+			if ((sideOne != sideTwo) && (sideOne != sideThree) && (sideTwo != sideThree))
 			return false;
 		}
 
