@@ -1,10 +1,15 @@
 package com.revature.eval.java.core;
 
+import java.time.LocalDate;
 import java.time.temporal.Temporal;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class EvaluationService {
+
+	private Object word;
 
 	/**
 	 * 1. Without using the StringBuilder or StringBuffer class, write a method that
@@ -14,14 +19,14 @@ public class EvaluationService {
 	 * @return
 	 */
 	public String reverse(String string) {
-			String input = "Alpha";
-			System.out.println();
-			char[]tryl = input.toCharArray();
-			System.out.println(); 
-			for(int i = tryl.length -1; i >= 0; i--)
-				System.out.print(tryl[i]);
-	System.out.println("test");
-			return reverse("Alpha");
+		String input = "Summer";
+		System.out.println();
+		char[]tryl = input.toCharArray();
+		System.out.println(); 
+		for(int i = tryl.length -1; i >= 0; i--)
+			System.out.print(tryl[i]);
+		System.out.println("");
+		return ("");
 		
 	}
 
@@ -35,13 +40,13 @@ public class EvaluationService {
 	 */
 	public String acronym(String phrase) {
 		String text = ("Rubi Rose Artist");
-			String acronym = ""; 
+			String acronym = "RRR"; 
 			System.out.println(text);
 			for (char c : text.toCharArray())
 				if(Character.isUpperCase(c))
 					acronym += c;
 			System.out.println(acronym);
-		return null;
+		return acronym;
 	}
 
 	/**
@@ -94,21 +99,27 @@ public class EvaluationService {
 		}
 
 		public boolean isEquilateral() {
-			if ((sideOne == sideTwo) && (sideTwo == sideThree))
-			return false;
+			if (((sideOne == sideTwo && sideTwo == sideThree)))
+				return true;
+			else 
+				return false;
 		}
 
 		public boolean isIsosceles() {
-			if ((sideOne == sideTwo)) && (sideOne != sideThree))
-				() 
-				((sideTwo == sideThree) && (sideTwo != sideOne)); 
+			if (((sideOne == sideTwo) && (sideOne != sideThree)) ||
+				((sideOne == sideThree) && (sideOne != sideTwo)) ||
+				((sideTwo == sideThree) && (sideTwo != sideOne)))
 					return true;
+			else
+				return false;
 					
 		}
 
 		public boolean isScalene() {
 			if ((sideOne != sideTwo) && (sideOne != sideThree) && (sideTwo != sideThree))
-			return false;
+				return true;
+			else
+				return false;
 		}
 
 	}
@@ -129,8 +140,67 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		int total = 0;
+		for (int i = 0; i < string.length(); i++) {
+			String lettersCap = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			
+			for(int i1 = 0; i1 < lettersCap.length(); i1++)  {
+				Map<String, Integer> lettersMap= new HashMap<String, Integer>();
+				if (lettersCap.charAt(i1) == 'A' || lettersCap.charAt(i1) == 'E' ||
+	                    lettersCap.charAt(i1) == 'I' || lettersCap.charAt(i1) == 'O' ||
+	                    lettersCap.charAt(i1) == 'O' || lettersCap.charAt(i1) == 'U' ||
+	                    lettersCap.charAt(i1) == 'L' || lettersCap.charAt(i1) == 'N' ||
+	                    lettersCap.charAt(i1) == 'R' || lettersCap.charAt(i1) == 'S' ||
+	                    lettersCap.charAt(i1) == 'T') {
+	
+	                lettersMap(lettersCap.charAt(i1), 1);
+	                lettersMap(lettersCap.toLowerCase().charAt(i1), 1);
+	            }
+	
+	            if (lettersCap.charAt(i1) == 'D' || lettersCap.charAt(i1) == 'G') {
+	            	lettersMap(lettersCap.charAt(i1), 2);
+	            }
+				
+				if(lettersCap.charAt(i1) == 'B' || lettersCap.charAt(i1) == 'C' ||
+				lettersCap.charAt(i1) == 'M' || lettersCap.charAt(i1) == 'P') {
+		            lettersMap(lettersCap.charAt(i1), 3);
+		            lettersMap(lettersCap.toLowerCase().charAt(i1), 3);
+		        }
+		
+		        if (lettersCap.charAt(i1) == 'F' || lettersCap.charAt(i1) == 'H' ||
+		                lettersCap.charAt(i1) == 'V' || lettersCap.charAt(i1) == 'W' ||
+		                lettersCap.charAt(i1) == 'Y') {
+		            lettersMap(lettersCap.charAt(i1), 4);
+		            lettersMap(lettersCap.toLowerCase().charAt(i1), 4);
+		        }
+		
+		        if (lettersCap.charAt(i1) == 'K') {
+		            lettersMap(lettersCap.charAt(i1), 5);
+		            lettersMap(lettersCap.toLowerCase().charAt(i1), 5);
+		        }
+		
+		        if (lettersCap.charAt(i1) == 'J' || lettersCap.charAt(i1) == 'X') {
+		            lettersMap(lettersCap.charAt(i1), 8);
+		            lettersMap(lettersCap.toLowerCase().charAt(i1), 8);
+		        }
+		
+		        if (lettersCap.charAt(i1) == 'Q' || lettersCap.charAt(i1) == 'Z') {
+		            lettersMap(lettersCap.charAt(i1), 10);
+		            lettersMap(lettersCap.toLowerCase().charAt(i1), 10);
+		        }
+		        
+			}
+		}
+
+        int totalValue = 0;
+		
+		return totalValue;
+	}
+	
+
+	private void lettersMap(char charAt, int i) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	/**
@@ -165,8 +235,23 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		String out = "";
+		for (int i = 0; i < string.length(); i++) {
+			if (Character.isLetter(string.charAt(i))) {
+				throw new IllegalArgumentException();
+			}
+			if (Character.isDigit(string.charAt(i))) {
+				out +=string.charAt(i);
+				if (out.length() >= 11) {
+					throw new IllegalArgumentException();
+				}
+			}
+		}
+		if (out.length() < 10) {
+			throw new IllegalArgumentException();
+		}
+		
+		return out;
 	}
 
 	/**
@@ -179,8 +264,24 @@ public class EvaluationService {
 	 * @return
 	 */
 	public Map<String, Integer> wordCount(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		Map<String, Integer> map = new HashMap<String, Integer> ();
+		for (char c : string.toCharArray()) {
+			
+			if (!map.containsKey(c)) {
+				map (c, 1);
+		}			else {
+				int count = map.get(c);
+				map (c, count + 1);
+				
+			}
+		}
+		
+		return map;	
+		
+	}
+
+	private void map(char c, int i) {
+
 	}
 
 	/**
@@ -259,9 +360,34 @@ public class EvaluationService {
 	 * @return
 	 */
 	public String toPigLatin(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		char firstLetter = string.charAt(0);
+		String everythingElse = string.substring(1);
+		
+		String n = everythingElse + firstLetter;
+		
+		if (string (firstLetter)) {
+			return n + "";
+		}
+		return n + "";
+		
 	}
+		private boolean string(char firstLetter) {
+		return false;
+	}
+
+		public static void main (String args[]) {
+			String[] words = {"", "", ""};
+			for (String word : words) {
+				String s = (word); 
+				System.out.println(word +"");		
+			}
+		{ 
+			return;
+	 }
+}
+
+		
+		
 
 	/**
 	 * 9. An Armstrong number is a number that is the sum of its own digits each
@@ -278,8 +404,19 @@ public class EvaluationService {
 	 * @param input
 	 * @return
 	 */
-	public boolean isArmstrongNumber(int input) {
-		// TODO Write an implementation for this method declaration
+	public boolean isArmstrongNumber (int input) {
+
+		int in = input; 
+		String inp = Integer.toString(input);
+		int length = inp.length();
+		int sum = 0;
+		
+		for (int i = 0; i < length; i++) {
+			sum += (int)Math.pow(input % 10, length);
+			input /= 10; 
+		}
+		if (in == sum) return true; 
+		
 		return false;
 	}
 
@@ -324,6 +461,7 @@ public class EvaluationService {
 	 * gur ynml qbt. ROT13 Gur dhvpx oebja sbk whzcf bire gur ynml qbt. gives The
 	 * quick brown fox jumps over the lazy dog.
 	 */
+	
 	static class RotationalCipher {
 		private int key;
 
@@ -331,12 +469,16 @@ public class EvaluationService {
 			super();
 			this.key = key;
 		}
-
+		
 		public String rotate(String string) {
-			// TODO Write an implementation for this method declaration
+			String s  = new String(); 
+			
+			for (int j = 0; j < string.length(); j++) {
+				int index = 0;
+				int p = (string.charAt(index)); 
+		}
 			return null;
 		}
-
 	}
 
 	/**
@@ -352,8 +494,29 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int calculateNthPrime(int i) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		List<Integer> primeArr = new ArrayList<>(); 
+		int count = 3;
+		int index = 1;
+		primeArr.add(2); 
+		if (i == 0); 
+		else if (i == 1) return 2;
+		else {
+			while (true) {
+				
+				if (isPrime(count) == true) {
+					index ++;
+					primeArr.add(count);
+				}
+				count++;
+				if (i == index) break; 		
+			}
+		}
+		return primeArr.get(index-1);
+	}
+
+	private boolean isPrime(int count) {
+
+		return false;
 	}
 
 	/**
@@ -477,9 +640,31 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int getSumOfMultiples(int i, int[] set) {
-		// TODO Write an implementation for this method declaration
-		return 0;
-	}
+		
+		    int firstNumber = 3;
+		    int secondNumber = 5;
+		    ArrayList<Integer> numberToCheck = new ArrayList<Integer>();
+		    ArrayList<Integer> multiples = new ArrayList<Integer>();
+		    int sumOfMultiples = 0;
+		    for (int i1 = 0; i1 < 20; i1++) {
+		       numberToCheck.add(i1);
+
+		       if (numberToCheck.get(i1) % firstNumber == 0 || numberToCheck.get(i1) % secondNumber == 0) {
+		           multiples.add(numberToCheck.get(i1));
+		       }
+
+		    }
+
+		    for (int i1=0; i<multiples.size(); i++) {
+
+		     sumOfMultiples += multiples.get(i);
+
+		    }
+		    System.out.println(multiples);
+		    System.out.println("Sum Of Multiples: " + sumOfMultiples);
+
+		    return 0;
+		}
 
 	/**
 	 * 19. Given a number determine whether or not it is valid per the Luhn formula.
@@ -494,14 +679,14 @@ public class EvaluationService {
 	 * allowed in the input, but they should be stripped before checking. All other
 	 * non-digit characters are disallowed.
 	 * 
-	 * Example 1: valid credit card number 1 4539 1488 0343 6467 The first step of
+	 * Example 1: (valid credit card number 1 4539 1488 0343 6467 The first step of
 	 * the Luhn algorithm is to double every second digit, starting from the right.
-	 * We will be doubling
+	 * We will be doubling)
 	 * 
 	 * 4_3_ 1_8_ 0_4_ 6_6_ If doubling the number results in a number greater than 9
 	 * then subtract 9 from the product. The results of our doubling:
 	 * 
-	 * 8569 2478 0383 3437 Then sum all of the digits:
+	 * 8569 2478 0383 3437 Then sum all of the digits:{
 	 * 
 	 * 8+5+6+9+2+4+7+8+0+3+8+3+3+4+3+7 = 80 If the sum is evenly divisible by 10,
 	 * then the number is valid. This number is valid!
@@ -518,7 +703,25 @@ public class EvaluationService {
 	 * @return
 	 */
 	public boolean isLuhnValid(String string) {
-		// TODO Write an implementation for this method declaration
+		String computedString = "";
+		int sum = 0; 
+		if (string.length() <= 1) return false;
+		
+		for(int i = 0; i < string.length(); i++) {
+			if (Character.isDigit(string.charAt(i))) {
+				computedString += string.charAt(i);
+		}
+	}
+		int [] nums = new int [computedString.length()];
+		for (int j = 0; i < string.length(); j++) {
+			nums[j] = (int)(computedString.charAt(j)-'0');		
+		}
+		
+		for (int k = nums.length-1; k>= 0; k-= 2) {
+			nums[k] *= 2; 
+			if (nums[k] *2 > 9) nums[k] -= 9;
+		}
+		for (int p : nums)
 		return false;
 	}
 
@@ -550,8 +753,20 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int solveWordProblem(String string) {
-		// TODO Write an implementation for this method declaration
+		 
+		int x = (5 + 13);
+		System.out.println(x);
+		
+		int x1 = (7 - 5);
+		System.out.println(x1);
+		
+		int x2 = (6 * 4);
+		System.out.println(x2);
+		
+		int x3 = (25/5);
+		System.out.println(x3);
+		
 		return 0;
 	}
-
 }
+
